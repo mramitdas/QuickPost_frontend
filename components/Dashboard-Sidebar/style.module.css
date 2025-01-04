@@ -1,0 +1,39 @@
+.sidebar {
+  display: block;
+  height: 80.1vh;
+}
+.button{
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+}
+.email{
+  color: grey;
+}
+.sidebar button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background-color: transparent;
+  color: grey;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+}
+.icon{
+    color: gray;
+}
+.button:hover {
+    background-color: aqua;
+    color: gray;
+}
+.profileInfo{
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
