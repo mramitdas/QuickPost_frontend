@@ -24,7 +24,7 @@ const DashoardHeader = () => {
             cursor: "pointer",
             borderRadius: "50%",
             border: "1px solid black",
-            padding: "15px",
+            padding: "0.625rem",
           }}
         />
         <h2>Quick Post</h2>

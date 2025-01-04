@@ -15,6 +15,7 @@
   padding: 1rem;
   background: linear-gradient(90deg,  #FF6EF5,  #4FABFB);
   background-size: 300%;
+  background-clip: unset;
   -webkit-background-clip: text; 
   -webkit-text-fill-color: transparent;
   cursor: pointer;

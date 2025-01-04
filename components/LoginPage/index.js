@@ -25,7 +25,7 @@ const LoginPage = () => {
                 
             </form>
             <div className={styles.SignUpMethods}>
-            <p className={styles.SignUp}>Don't have an account? <span>Sign Up</span></p>
+            <p className={styles.SignUp}>Don't have an account? <Link href="/signup"><span>Sign Up</span></Link></p>
             <p className={styles.or}>OR</p>
             <button>Sign in with Google</button>
             </div>

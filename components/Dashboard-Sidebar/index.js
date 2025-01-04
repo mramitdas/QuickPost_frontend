@@ -34,10 +34,8 @@ const DashboardSidebar = ({ user, navigationItems, socialPlatforms }) => {
 
   return (
     <div className={styles.sidebar}>
-      {/* Profile Info */}
       <div className={styles.profileInfo}>
   <div className={styles.profilePic}>
-    {/* Display initials or a placeholder image */}
     {user.profilePic ? (
       <img src={user.profilePic} alt={`${user.name}'s profile`} />
     ) : (
@@ -56,9 +54,6 @@ const DashboardSidebar = ({ user, navigationItems, socialPlatforms }) => {
   </div>
   <FontAwesomeIcon icon={faAngleDown} className={styles.icon} />
 </div>
-
-
-      {/* Navigation */}
       <div className={styles.navigation}>
         {navigationItems.map((item, index) => (
           <div key={index} className={styles.button}>
@@ -69,8 +64,6 @@ const DashboardSidebar = ({ user, navigationItems, socialPlatforms }) => {
           </div>
         ))}
       </div>
-
-      {/* Social Media Profiles */}
       <div className={styles.socialProfiles}>
         {socialPlatforms.map((platform, index) => (
           <SocialMediaProfile key={index} platform={platform} user={user} />
