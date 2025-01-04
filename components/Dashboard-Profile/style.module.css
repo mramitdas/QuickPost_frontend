@@ -5,7 +5,18 @@
   border: 1px solid grey;
   padding: 15px;
 }
-
+.header{
+  display: flex;
+  justify-content: space-between;
+}
+.editButton{
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
+  background-color: cornflowerblue;
+  color: white;
+}
 .button1 {
   border: none;
   background-color: transparent;

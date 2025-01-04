@@ -9,6 +9,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import styles from "./style.module.css";
+import Link from "next/link";
 
 const DashoardHeader = () => {
   return (
@@ -26,7 +27,7 @@ const DashoardHeader = () => {
             padding: "15px",
           }}
         />
-        <h2>Task Scheduler</h2>
+        <h2>Quick Post</h2>
       </div>
       <div className={styles.center}>
         <ul>
@@ -45,7 +46,8 @@ const DashoardHeader = () => {
         />
 
         <FontAwesomeIcon icon={faGear} size="1x" style={{ color: "grey" }} />
-        <button>Upgrade</button>
+        <Link href="/subscribe"><button>Upgrade</button></Link>
+        
         <FontAwesomeIcon
           icon={faUserLarge}
           size="1x"

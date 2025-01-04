@@ -4,6 +4,8 @@
     align-items: center;
     padding: 1rem;
     border-bottom: 1px solid grey;
+    background-color: #1c1d20;
+    color: white;
 }
 .left{
     display: flex;
