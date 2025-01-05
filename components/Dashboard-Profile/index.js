@@ -1,12 +1,9 @@
 import React, { useState, useEffect } from "react";
 import DashoardSidebar from "../Dashboard-Sidebar";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUserFriends } from "@fortawesome/free-solid-svg-icons";
 import styles from "./style.module.css";
 import fetchData from "../Service/GetUser";
 
 const DashoardProfile = () => {
-
   const user = {
     name: "John Doe",
     email: "Jhondoe@gmail.com",
@@ -29,8 +26,8 @@ const DashoardProfile = () => {
     lastName: "Doe",
     email: "johndoe@gmail.com",
     phone: "156151651",
-    gender: "Male",      
-    dob: "1990-01-01",    
+    gender: "Male",
+    dob: "1990-01-01",
     address: "Los Angeles, CA",
     city: "Los Angeles",
     state: "California",
@@ -38,22 +35,12 @@ const DashoardProfile = () => {
     country: "United States",
   };
 
-  // console.log("defaultData", defaultData);
-
   const [profileData, setProfileData] = useState(defaultData);
-  // console.log("profileData", profileData);
-  
-  // console.log(Object.keys(profileData || {}));
 
   const [isEditable, setIsEditable] = useState(false);
 
   useEffect(() => {
-    const storedData = localStorage.getItem("profileData");
-    if (storedData) {
-      // setProfileData(JSON.parse(storedData));
-    } else {
-      fetchInitialData();
-    }
+    fetchInitialData();
   }, []);
 
   const fetchInitialData = async () => {
@@ -61,7 +48,6 @@ const DashoardProfile = () => {
       const data = await fetchData();
       const profile = data || defaultData;
       setProfileData(profile);
-      localStorage.setItem("profileData", JSON.stringify(profile)); // Save fetched data to localStorage
     } catch (error) {
       console.error("Error fetching user data:", error);
     }
@@ -74,7 +60,6 @@ const DashoardProfile = () => {
         ...prevData,
         [name]: value,
       };
-      localStorage.setItem("profileData", JSON.stringify(updatedData)); // Save changes to localStorage
       return updatedData;
     });
   };
@@ -86,7 +71,11 @@ const DashoardProfile = () => {
   return (
     <div className={styles.profile}>
       <div className={styles.sidebar}>
-        <DashoardSidebar user={user} navigationItems={navigationItems} socialPlatforms={socialPlatforms} />
+        <DashoardSidebar
+          user={user}
+          navigationItems={navigationItems}
+          socialPlatforms={socialPlatforms}
+        />
       </div>
       <div className={styles.content}>
         <div className={styles.contentBottom}>
@@ -98,7 +87,6 @@ const DashoardProfile = () => {
           </div>
           <div className={styles.form}>
             {Object.keys(profileData || {}).map((key) => {
-              // Skip rendering for dob and gender fields in edit mode
               if (key === "dob" || key === "gender") {
                 return (
                   <div className={styles.inputContainer} key={key}>
@@ -109,14 +97,16 @@ const DashoardProfile = () => {
                       type={key === "dob" ? "date" : "text"}
                       name={key}
                       value={profileData[key] || ""}
-                      placeholder={`Enter ${key.charAt(0).toUpperCase() + key.slice(1)}`}
+                      placeholder={`Enter ${
+                        key.charAt(0).toUpperCase() + key.slice(1)
+                      }`}
                       className={styles.input}
-                      disabled={true}  // Always disabled for dob and gender
+                      disabled={true}
                     />
                   </div>
                 );
               }
-              
+
               return (
                 <div className={styles.inputContainer} key={key}>
                   <label className={styles.label}>
@@ -126,7 +116,9 @@ const DashoardProfile = () => {
                     type="text"
                     name={key}
                     value={profileData[key] || ""}
-                    placeholder={`Enter ${key.charAt(0).toUpperCase() + key.slice(1)}`}
+                    placeholder={`Enter ${
+                      key.charAt(0).toUpperCase() + key.slice(1)
+                    }`}
                     className={styles.input}
                     disabled={!isEditable}
                     onChange={handleInputChange}
