@@ -20,7 +20,7 @@ const DashoardProfile = () => {
     { label: "Learn", hasSubmenu: true },
     { label: "Help Center", hasSubmenu: true },
     { label: "Support", hasSubmenu: true },
-    // { label: "Privacy Policy", hasSubmenu: false },
+    { label: "Privacy Policy", hasSubmenu: false },
   ];
 
   const defaultData = {

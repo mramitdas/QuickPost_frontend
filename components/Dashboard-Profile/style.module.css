@@ -91,3 +91,7 @@
   flex-wrap: wrap;
   margin-top: 2rem;
 }
+
+.profile{
+  height: 84vh;
+}
