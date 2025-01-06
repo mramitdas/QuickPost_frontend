@@ -8,10 +8,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useRouter } from "next/router"; // Import useRouter
 import styles from "./style.module.css";
-import Link from "next/link";
 
 const DashoardHeader = () => {
+  const router = useRouter(); // Initialize useRouter hook
+
+  const handleUpgrade = () => {
+    router.push("/subscribe"); // Navigate to the subscribe page when button is clicked
+  };
+
   return (
     <div className={styles.header}>
       <div className={styles.left}>
@@ -44,10 +50,10 @@ const DashoardHeader = () => {
           size="1x"
           style={{ color: "grey" }}
         />
-
         <FontAwesomeIcon icon={faGear} size="1x" style={{ color: "grey" }} />
-        <Link href="/subscribe"><button>Upgrade</button></Link>
-        
+
+        <button onClick={handleUpgrade}>Upgrade</button>
+
         <FontAwesomeIcon
           icon={faUserLarge}
           size="1x"

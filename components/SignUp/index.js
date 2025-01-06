@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styles from "./style.module.css";
-import Link from "next/link";
+import { useRouter } from "next/router";
 
 const UserSignUp = () => {
+
+  const router = useRouter();
+
   const fields = [
     {
       id: "firstName",
@@ -162,7 +165,8 @@ const UserSignUp = () => {
     e.preventDefault();
 
     if (validateForm()) {
-      console.log("Form Submitted: ", formData);
+      // console.log("Form Submitted: ", formData);
+      router.push("/dashboard");
     }
   };
 
@@ -232,9 +236,9 @@ const UserSignUp = () => {
             })}
           </div>
           <div className={styles.SignUpSubmitbutton}>
-            <Link href="/dashboard">
+           
               <button type="submit">Sign Up</button>
-            </Link>
+            
           </div>
         </form>
       </div>
